@@ -40,6 +40,7 @@
     color: white;
 }
 
+/* tombol umum (kecuali hamburger) */
 .navbar button:not(.hamburger){
     display: flex;
     align-items: center;
@@ -58,11 +59,12 @@
     width: 13px;
 }
 
+/* ===== Breakpoints dasar ===== */
 @media (max-width: 900px) {
     .navbar{
         padding: 20px 8%;
     }
-    .navbar button{
+    .navbar button:not(.hamburger){
         gap: 8px;
         padding: 8px 18px;
         font-size: 14px;
@@ -73,7 +75,7 @@
     .navbar{
         padding: 20px 5%;
     }
-    .navbar ul{
+    .navbar ul{          /* sembunyikan menu desktop */
         display: none;
     }
     .navbar button img {
@@ -89,7 +91,7 @@
   transition: all .18s ease;
 }
 
-/* hover for nav items (except logo) */
+/* hover untuk nav items (kecuali logo) */
 .nav-menu .nav-link:hover li {
   background: rgba(255,255,255,.08);
   border: 1px solid rgba(255,255,255,.14);
@@ -129,11 +131,18 @@
 @media (max-width: 640px){
   .nav-menu .nav-link li { padding: 6px 8px; }
   .nav-cta { padding: 8px 12px; border-radius: 10px; }
+  .nav-select { padding: 6px 8px; font-size: 13px; }
+}
+
+/* extra small (≤480px): tombol & select makin kecil */
+@media (max-width: 480px){
+  .nav-cta { padding: 6px 10px; font-size: 13px; border-radius: 8px; }
+  .nav-select { padding: 6px 8px; font-size: 13px; }
 }
 
 /* ===== Hamburger & Mobile Menu ===== */
 
-/* tombol hamburger: disembunyikan default (desktop) */
+/* default: desktop -> hamburger hilang */
 .hamburger{
   display: none;
   position: relative;
@@ -154,7 +163,7 @@
   left: 9px;
   right: 9px;
   height: 3px; 
-  background: #0d1421; 
+  background: #0d1421; /* gelap: kontras dgn background terang tombol */
   border-radius: 2px;
   transform-origin: center;
   transition: transform .2s ease, opacity .2s ease, top .2s ease;
@@ -163,15 +172,9 @@
 .hamburger span:nth-child(2){ top: 18px; }
 .hamburger span:nth-child(3){ top: 24px; }
 /* animasi jadi X saat open */
-.hamburger.is-open span:nth-child(1){
-  top: 18px; transform: rotate(45deg);
-}
-.hamburger.is-open span:nth-child(2){
-  opacity: 0;
-}
-.hamburger.is-open span:nth-child(3){
-  top: 18px; transform: rotate(-45deg);
-}
+.hamburger.is-open span:nth-child(1){ top: 18px; transform: rotate(45deg); }
+.hamburger.is-open span:nth-child(2){ opacity: 0; }
+.hamburger.is-open span:nth-child(3){ top: 18px; transform: rotate(-45deg); }
 
 /* container menu mobile (dropdown full-width) */
 .mobile-menu{
@@ -212,20 +215,13 @@
   transform: translateY(-1px);
 }
 
-/* ——— Responsive rules ——— */
+/* ——— Responsive rules khusus mobile ——— */
 @media (max-width: 768px) {
-  /* sudah ada: .navbar ul { display: none; } -> sembunyikan nav desktop */
-  .hamburger{ display: inline-block; }  /* tampilkan hamburger */
-  /* rapetin kanan biar muat */
+  /* nav-menu desktop disembunyikan (sudah ada di atas) */
+  .hamburger{ 
+    display: inline-flex;          /* tampilkan hamburger */
+    align-items: center;
+    justify-content: center;
+  }
   .nav-right{ gap: 10px; }
 }
-
-/* default: desktop mode */
-.hamburger { display: none; }
-
-/* sudah ada aturan @media (max-width: 768px) buat sembunyiin .nav-menu */
-@media (max-width: 768px) {
-  .nav-menu { display: none; }   /* sembunyiin menu desktop */
-  .hamburger { display: inline-flex; }  /* tampilkan hamburger */
-}
-
