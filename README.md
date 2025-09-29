@@ -2,9 +2,9 @@
 
 ---
 ## 📖 Overview
-Live Preview: [https://ful-s-crypto-price-tracking-app.vercel.app/](https://ful-s-crypto-price-tracking-app.vercel.app/)  
+**Live Preview:** [https://ful-s-crypto-price-tracking-app.vercel.app/](https://ful-s-crypto-price-tracking-app.vercel.app/)  
 
-Ful’s Crypto Tracking App is a modern web platform for monitoring cryptocurrency prices, market capitalization, and trends in real-time.  
+**Ful’s Crypto Tracking App** is a modern web platform for monitoring cryptocurrency prices, market capitalization, and trends in real-time.  
 Powered by the **CoinGecko API**, it delivers live data, instant search, and a clean, user-friendly interface—making it easier to stay updated with the crypto market.  
 
 ---
