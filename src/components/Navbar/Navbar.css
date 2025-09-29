@@ -225,3 +225,69 @@
   }
   .nav-right{ gap: 10px; }
 }
+
+/* ====== APPEND-ONLY: Keep navbar & mobile menu fixed ====== */
+:root{
+  --nav-h: 76px;
+}
+
+/* Biar bar-nya nempel di atas */
+.navbar{
+  position: sticky;
+  top: 0;
+  z-index: 120;
+  background: rgba(6, 13, 34, .92);
+  backdrop-filter: blur(6px);
+}
+
+/* Saat layar kecil, tinggi navbar bisa sedikit beda */
+@media (max-width: 768px){
+  :root{ --nav-h: 76px; }
+}
+
+/* Mobile menu udah fixed, sekarang kita kunci tinggi & scroll internal */
+.mobile-menu{
+  position: fixed;
+  top: var(--nav-h);
+  left: 0;
+  right: 0;
+  height: calc(100vh - var(--nav-h));
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  z-index: 110;
+}
+
+/* Kunci scroll halaman saat menu terbuka (tanpa JS, modern browsers) */
+html:has(.mobile-menu.open){
+  overflow: hidden;
+}
+
+body.no-scroll{
+  overflow: hidden;
+}
+
+/* Pastikan tombol hamburger selalu klik-able di atas */
+.hamburger{
+  z-index: 130;
+}
+
+/* Bonus: kalau ada notch/iOS safe area */
+@supports (padding-top: env(safe-area-inset-top)){
+  .navbar{ padding-top: max(20px, env(safe-area-inset-top)); }
+  .mobile-menu{ padding-bottom: max(16px, env(safe-area-inset-bottom)); }
+}
+
+/* ===== Mobile menu hanya setinggi konten ===== */
+.mobile-menu{
+  height: auto;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+/* Kalau mau lebih natural: background jangan full-bleed */
+.mobile-menu{
+  background: rgba(6, 13, 34, .96);
+  border-radius: 0 0 14px 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.4);
+}
+

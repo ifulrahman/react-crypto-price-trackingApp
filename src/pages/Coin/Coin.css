@@ -304,3 +304,85 @@
     .coin-info{ max-width: 1100px; }
     .coin-info ul:nth-of-type(6){ max-width: 1200px; }
 }
+
+/* ==================== EXTRA RESPONSIVE OVERRIDES (append only) ==================== */
+.coin{
+    font-size: clamp(14px, 1.6vw, 16px);
+}
+
+/* Phones ≤640px (bonus step-down halus) */
+@media (max-width: 640px){
+    .coin{ font-size: clamp(13px, 2.6vw, 15px); }
+    .coin-name{ margin: 64px auto 30px; }
+    .coin-chart{ height: clamp(180px, 40vw, 300px); }
+}
+
+/* Small phones (override yang lebih ketat dari blok 480px kamu) */
+@media (max-width: 480px){
+    .coin{ padding: 0 12px; font-size: 13px; }
+
+    .coin-name{ margin: 50px auto 24px; gap: 12px; }
+    .coin-name img{ max-width: 64px; }
+    /* Judul lebih kalem di mobile */
+    .coin-name p b{ font-size: clamp(20px, 5.2vw, 28px); }
+
+    /* Chart lebih ringkas dan padding dikurangi */
+    .coin-chart{
+        padding: 8px;
+        height: clamp(160px, 38vw, 220px);
+    }
+
+    .coin-info{ margin: 22px auto 50px; }
+
+    /* Kartu 5 baris: padding & font diperkecil */
+    .coin-info ul:nth-of-type(-n+5){
+        padding: 10px 12px;
+        gap: 6px 0;
+    }
+    .coin-info ul:nth-of-type(-n+5) li:first-child{ font-size: 0.9rem; }
+    .coin-info ul:nth-of-type(-n+5) li:last-child{ font-size: 0.95rem; }
+
+    /* Deskripsi (ul ke-6): judul & body mengecil */
+    .coin-info ul:nth-of-type(6){
+        margin: 24px auto;
+        padding: 20px 14px;
+    }
+    .coin-info ul:nth-of-type(6) li:first-child{
+        font-size: clamp(18px, 5vw, 24px);
+    }
+    .coin-info ul:nth-of-type(6) li:last-child{
+        max-width: 58ch;
+        line-height: 1.7;
+        font-size: 0.95rem;
+    }
+
+    /* Link situs blockchain: tombol lebih ramping */
+    .coin-info ul:nth-of-type(7){ gap: 8px; }
+    .coin-info ul:nth-of-type(7) li:not(:first-child){ max-width: 100%; }
+    .coin-info ul:nth-of-type(7) li a{
+        padding: 8px 12px;
+        font-size: 0.95rem;
+    }
+}
+
+/* Very small phones (≤360px): benar-benar kecil tapi tetap nyaman dibaca */
+@media (max-width: 360px){
+    .coin{ padding: 0 10px; font-size: 12px; }
+    .coin-chart{ height: clamp(150px, 42vw, 200px); }
+    .coin-info ul:nth-of-type(-n+5){ padding: 10px; }
+    .coin-info ul:nth-of-type(6){ padding: 18px 12px; }
+    .coin-info ul:nth-of-type(7) li a{ padding: 8px 10px; }
+}
+
+/* Phone landscape pendek (biar nggak “penuh sesak”) */
+@media (max-height: 480px) and (orientation: landscape){
+    .coin-name{ margin: 40px auto 20px; }
+    .coin-chart{ height: clamp(140px, 38vh, 220px); }
+    .coin-info{ margin: 18px auto 40px; }
+}
+
+/* High DPI zoom fix (opsional, bikin teks sedikit lebih rapat di mobile) */
+@media (max-width: 480px) and (min-resolution: 2dppx){
+    .coin-info ul:nth-of-type(-n+5) li:first-child{ letter-spacing: .2px; }
+    .coin-info ul:nth-of-type(6) li:first-child{ letter-spacing: .4px; }
+}

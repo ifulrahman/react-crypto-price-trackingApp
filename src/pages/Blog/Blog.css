@@ -59,3 +59,42 @@
   .blog__grid{ grid-template-columns: 1fr; }
   .blog{ padding: 40px 14px 70px; }
 }
+
+/* ====== Tambahan responsif ====== */
+@media (max-width: 1200px){
+  .blog__container{ max-width: 980px; }
+}
+
+@media (max-width: 900px){
+  .blog__grid{ gap: 14px; }
+  .blog__thumb{ height: 140px; }
+}
+
+@media (max-width: 768px){
+  .blog{ padding: 48px 14px 80px; }
+  .blog__container{ max-width: 680px; }
+  .blog__grid{ gap: 12px; }
+  .blog__card{ border-radius: 14px; }
+  .blog__thumb{ height: 130px; }
+  .blog__body{ padding: 12px; }
+  .blog__body h3{ font-size: 17px; }
+  .blog__body p{ font-size: 13.5px; }
+}
+
+@media (max-width: 480px){
+  .blog{ padding: 36px 12px 64px; }
+  .blog__title{ font-size: clamp(24px, 6vw, 30px); }
+  .blog__subtitle{ font-size: 14px; margin-bottom: 20px; }
+  .blog__grid{ gap: 10px; }
+  .blog__card{ border-radius: 12px; }
+  .blog__thumb{ height: 120px; }
+  .blog__body{ padding: 10px; }
+  .blog__body h3{ font-size: 16px; }
+  .blog__body p{ font-size: 13px; line-height: 1.55; }
+  .blog__link{ font-size: 13px; }
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .blog__card{ transition: none; }
+}

@@ -100,3 +100,34 @@
   .faq{ padding: 40px 14px 70px; }
   .faq__answer p, .faq__answer ul{ font-size: 14px; }
 }
+
+/* ====== Tambahan responsif ====== */
+@media (max-width: 1024px){
+  .faq__container{ max-width: 760px; }
+}
+
+@media (max-width: 768px){
+  .faq{ padding: 48px 14px 72px; }
+  .faq__container{ max-width: 640px; }
+  .faq__item > summary{ padding: 12px 40px 12px 14px; }
+  .faq__item > summary::after{ right: 12px; width: 9px; height: 9px; }
+  .faq__answer{ padding: 0 14px; }
+  .faq__item[open] .faq__answer{ padding: 6px 14px 14px; }
+}
+
+@media (max-width: 480px){
+  .faq{ padding: 36px 12px 60px; }
+  .faq__title{ font-size: clamp(24px, 6vw, 30px); }
+  .faq__subtitle{ font-size: 14px; margin-bottom: 20px; }
+  .faq__list{ gap: 10px; }
+  .faq__item{ border-radius: 12px; }
+  .faq__item > summary{ padding: 10px 36px 10px 12px; font-size: 14px; }
+  .faq__item > summary::after{ right: 10px; width: 8px; height: 8px; }
+  .faq__answer p, .faq__answer ul{ font-size: 13px; line-height: 1.6; }
+  .faq__item[open] .faq__answer{ max-height: 380px; }
+}
+
+/* gerakan lebih kalem jika user prefer reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .faq__item, .faq__answer, .faq__item > summary::after{ transition: none; }
+}
