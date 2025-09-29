@@ -7,10 +7,12 @@ import Footer from './components/Footer/Footer'
 import Signup from './pages/SignUp/SignUp'
 import FAQ from './pages/FAQ/FAQ'
 import Blog from './pages/Blog/Blog'
+import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
   return (
     <div className='app'>
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />}/>
